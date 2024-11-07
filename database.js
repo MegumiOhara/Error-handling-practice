@@ -6,10 +6,13 @@ export function createReservation(data, callback){
             callback(error, null);
         }
         else{
-            callback(null, { id: DataTransfer.now(), ...data});
+            const reservation = { id: Date.now(), ...data };
+            callback(null, reservation);
+            console.log("Reservation created:", reservation); 
         }
     },1000);
 }
+
 
 //Promise error handling 
 export function getReservation(id) {
